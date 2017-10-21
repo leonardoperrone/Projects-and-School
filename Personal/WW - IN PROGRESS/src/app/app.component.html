@@ -1,0 +1,41 @@
+<div *ngIf="router.url != '/'">
+  <nav class="navbar navbar-default navbar-fixed-top" id="menu-nav" role="navigation">
+    <div class="container" id="top-header-container">
+      <div class="navbar-header top-header-logo">
+        <a [routerLink]="['/home']"> <span class="icon-ww_logo3 icon-ww_logo3-x1 rounded" aria-hidden="true"></span></a>
+      </div>
+      <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+        <ul class="nav navbar-nav" role="group">
+          <li role="list-item">
+            <a [routerLink]="['/home']" routerLinkActive="active" class="page-scroll"> Home </a>
+          </li>
+          <li role="list-item">
+            <a class="page-scroll" [routerLink]="['/about']" routerLinkActive="active">
+              About </a>
+          </li>
+          <li role="list-item">
+            <a class="page-scroll" [routerLink]="['/contact']" routerLinkActive="active">
+              Contact </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<router-outlet></router-outlet>
+<div *ngIf="router.url == '/'">
+  <div class="intro-body landing-intro">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1 class="brand-heading landing-title-text">{{pageTitle}}</h1>
+          <p class="intro-text landing-intro-text"> {{landingIntro}}</p>
+          <p class="landing-logo-p"><span class="icon-ww_logo2 icon-ww_logo2-x2 rounded" aria-hidden="true"></span></p>
+          <a [routerLink]="['/home']">
+            <button type="button" class="btn landing-btn">Explore</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+import { OnInit } from "@angular/core";
+import { RadioGroupService } from "./radiogroup.service";
+export declare const COLUMN_SIZE = "col-lg-";
+export declare class RadioGroupComponent implements OnInit {
+    private radioGroupService;
+    fieldLabel: string;
+    fieldName: string;
+    allowBlank: boolean;
+    dataReader: string;
+    httpMethod: string;
+    httpUrl: string;
+    displayField: string;
+    valueField: string;
+    radioGroupBindData: any;
+    searchBox: boolean;
+    column: string;
+    selectedValue: any;
+    elementId: string;
+    data: any[];
+    viewData: any[];
+    textValue: string;
+    selectedCheckBox: any[];
+    constructor(radioGroupService: RadioGroupService);
+    ngOnInit(): void;
+    ngAfterViewInit(): void;
+    setData(httpResponse: any): void;
+    getResponseData(httpResponse: any): any;
+    filterData(event: any): void;
+    setSelectedCheckBox(rowData: any, event: any): void;
+    emitSelectedRows(): void;
+}
