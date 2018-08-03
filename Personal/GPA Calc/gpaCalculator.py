@@ -2,7 +2,7 @@ def calculation(numerator, totHours):
     return numerator / totHours
 
 
-gradeMapping = {'A': 4, 'B': 3, 'C': 2, 'D': 1, 'F': 0};
+gradeMapping = {'A+': 4, 'A': 4, 'A-': 3.70, 'B+': 3.30, 'B': 3,'B-': 2.70, 'C+': 2.30, 'C': 2, 'C': 1.70, 'D': 1, 'F': 0};
 
 grades = []
 num = 0.00
