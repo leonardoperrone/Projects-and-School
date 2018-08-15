@@ -1,0 +1,57 @@
+<!--<div class="container-fluid">-->
+<!--<div class="row d-flex d-md-block flex-nowrap wrapper">-->
+<!--<div class="col-md-2 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">-->
+<!--<div class="list-group border-0 card text-center text-md-left">-->
+<!--<a routerLink="" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar"><i-->
+<!--class="fas fa-home"></i> <span class="d-none d-md-inline"> Home </span> </a>-->
+<!--<a routerLink="gallery" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i-->
+<!--class="fas fa-camera"></i> <span class="d-none d-md-inline"> Gallery </span></a>-->
+<!--<a routerLink="about" class="list-group-item d-inline-block collapsed" data-toggle="collapse"-->
+<!--data-parent="#sidebar"><i class="fas fa-question-circle"></i> <span class="d-none d-md-inline"> About </span></a>-->
+<!--</div>-->
+<!--</div>-->
+<!--<main class="col-md-9 float-left col px-5 pl-md-2 pt-2 main">-->
+<!--<a href="#" data-target="#sidebar" data-toggle="collapse"><i class="fas fa-bars fa-2x py-2 p-1"></i></a>-->
+<!--<router-outlet></router-outlet>-->
+<!--</main>-->
+<!--</div>-->
+<!--</div>-->
+
+<div id="wrapper" [ngClass]="{showMenu:'toggled'}">
+
+  <nav class="navbar navbar-inverse" id="sidebar-wrapper" role="navigation">
+
+    <ul class="nav sidebar-nav">
+      <li class="nav-logo">
+        <a class="list-group-item d-inline-block collapsed" data-parent="#sidebar" (click)="toggleMenu()"><i
+          class="fas fa-bars"></i> </a>
+      </li>
+      <ng-container *ngIf="!showMenu" >
+        <li>
+          <a routerLink="" class="list-group-item d-inline-block collapsed" data-toggle="collapse"
+             data-parent="#sidebar"><i
+            class="fas fa-home"></i> <span class="d-none d-md-inline"> Home </span> </a>
+        </li>
+        <li>
+          <a routerLink="gallery" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i
+            class="fas fa-camera"></i> <span class="d-none d-md-inline"> Gallery </span></a>
+        </li>
+        <li>
+          <a routerLink="about" class="list-group-item d-inline-block collapsed" data-toggle="collapse"
+             data-parent="#sidebar"><i class="fas fa-question-circle"></i> <span
+            class="d-none d-md-inline"> About </span></a>
+        </li>
+      </ng-container>
+    </ul>
+  </nav>
+  <div id="page-content-wrapper">
+    <button type="button" class="hamburger open-nav is-closed animated fadeInLeft" (click)="toggleMenu()">
+      <span class="hamb-top"></span>
+      <span class="hamb-middle"></span>
+      <span class="hamb-bottom"></span>
+    </button>
+    <main class="container">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div><!-- /#wrapper -->
