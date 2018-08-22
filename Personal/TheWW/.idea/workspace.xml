@@ -165,7 +165,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="a" value="47" />
-          <entry key="gitignore" value="29" />
+          <entry key="gitignore" value="30" />
           <entry key="html" value="685" />
           <entry key="json" value="119" />
           <entry key="scss" value="635" />
@@ -176,7 +176,7 @@
         <counts>
           <entry key="HTML" value="685" />
           <entry key="JSON" value="119" />
-          <entry key="PLAIN_TEXT" value="76" />
+          <entry key="PLAIN_TEXT" value="77" />
           <entry key="SCSS" value="635" />
           <entry key="TypeScript" value="493" />
         </counts>
@@ -250,7 +250,7 @@
             <entry file="file://$PROJECT_DIR$/.gitignore">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="210">
-                  <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+                  <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
@@ -596,12 +596,12 @@
       <workItem from="1534369624882" duration="27000" />
       <workItem from="1534369924375" duration="305000" />
       <workItem from="1534617228027" duration="31592000" />
-      <workItem from="1534891432090" duration="533000" />
+      <workItem from="1534891432090" duration="598000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144777000" />
+    <option name="totallyTimeSpent" value="144842000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1664" height="976" extended-state="0" />
@@ -866,7 +866,7 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
         </state>
       </provider>
     </entry>
