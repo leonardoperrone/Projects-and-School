@@ -1,3 +1,19 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+  <a class="navbar-brand" href="#">the Wisdom Whisperer</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="">Home</a>
+      <a class="nav-item nav-link" routerLink="gallery">Gallery</a>
+      <a class="nav-item nav-link" routerLink="about">About</a>
+    </div>
+  </div>
+</nav>
+
 <!--<div class="container-fluid">-->
 <!--<div class="row d-flex d-md-block flex-nowrap wrapper">-->
 <!--<div class="col-md-2 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">-->
@@ -17,41 +33,42 @@
 <!--</div>-->
 <!--</div>-->
 
-<div id="wrapper" [ngClass]="{showMenu:'toggled'}">
+<!--<div id="wrapper" [ngClass]="{showMenu:'toggled'}">-->
 
-  <nav class="navbar navbar-inverse" id="sidebar-wrapper" role="navigation">
+<!--<nav class="navbar navbar-inverse" id="sidebar-wrapper" role="navigation">-->
 
-    <ul class="nav sidebar-nav">
-      <li class="nav-logo">
-        <a class="list-group-item d-inline-block collapsed" data-parent="#sidebar" (click)="toggleMenu()"><i
-          class="fas fa-bars"></i> </a>
-      </li>
-      <ng-container *ngIf="!showMenu" >
-        <li>
-          <a routerLink="" class="list-group-item d-inline-block collapsed" data-toggle="collapse"
-             data-parent="#sidebar"><i
-            class="fas fa-home"></i> <span class="d-none d-md-inline"> Home </span> </a>
-        </li>
-        <li>
-          <a routerLink="gallery" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i
-            class="fas fa-camera"></i> <span class="d-none d-md-inline"> Gallery </span></a>
-        </li>
-        <li>
-          <a routerLink="about" class="list-group-item d-inline-block collapsed" data-toggle="collapse"
-             data-parent="#sidebar"><i class="fas fa-question-circle"></i> <span
-            class="d-none d-md-inline"> About </span></a>
-        </li>
-      </ng-container>
-    </ul>
-  </nav>
-  <div id="page-content-wrapper">
-    <button type="button" class="hamburger open-nav is-closed animated fadeInLeft" (click)="toggleMenu()">
-      <span class="hamb-top"></span>
-      <span class="hamb-middle"></span>
-      <span class="hamb-bottom"></span>
-    </button>
-    <main class="container">
-      <router-outlet></router-outlet>
-    </main>
-  </div>
-</div><!-- /#wrapper -->
+<!--<ul class="nav sidebar-nav">-->
+<!--<li class="nav-logo">-->
+<!--<a class="list-group-item d-inline-block collapsed" data-parent="#sidebar" (click)="toggleMenu()"><i-->
+<!--class="fas fa-bars"></i> </a>-->
+<!--</li>-->
+<!--<ng-container *ngIf="!showMenu" >-->
+<!--<li>-->
+<!--<a routerLink="" class="list-group-item d-inline-block collapsed" data-toggle="collapse"-->
+<!--data-parent="#sidebar"><i-->
+<!--class="fas fa-home"></i> <span class="d-none d-md-inline"> Home </span> </a>-->
+<!--</li>-->
+<!--<li>-->
+<!--<a routerLink="gallery" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i-->
+<!--class="fas fa-camera"></i> <span class="d-none d-md-inline"> Gallery </span></a>-->
+<!--</li>-->
+<!--<li>-->
+<!--<a routerLink="about" class="list-group-item d-inline-block collapsed" data-toggle="collapse"-->
+<!--data-parent="#sidebar"><i class="fas fa-question-circle"></i> <span-->
+<!--class="d-none d-md-inline"> About </span></a>-->
+<!--</li>-->
+<!--</ng-container>-->
+<!--</ul>-->
+<!--</nav>-->
+<!--<div id="page-content-wrapper">-->
+<!--<button type="button" class="hamburger open-nav is-closed animated fadeInLeft" (click)="toggleMenu()">-->
+<!--<span class="hamb-top"></span>-->
+<!--<span class="hamb-middle"></span>-->
+<!--<span class="hamb-bottom"></span>-->
+<!--</button>-->
+<main class="container">
+  <router-outlet></router-outlet>
+</main>
+<!--</div>-->
+<!--</div>&lt;!&ndash; /#wrapper &ndash;&gt;-->
+
