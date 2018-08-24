@@ -1,24 +1,16 @@
-<ul>
-  <li *ngFor="let country of countriesMock">
-    <!--<a href="javascript:;" (click)="countrySelected(country)">-->
-    <a href="javascript:;" (click)="countrySelectedMock(country.toUpperCase())">
-      {{country}}
-    </a>
-  </li>
-</ul>
-
-
-<div class="grid">
-  <mat-progress-spinner [value]="75" [strokeWidth]="10" [diameter]="50" [mode]="'indeterminate'" [color]="'primary'"
-                        *ngIf="!loaded"></mat-progress-spinner>
-  <ng-container *ngIf="loaded">
-    <div class="column" *ngFor="let i of picLinkArr; let idx = index;">
-        <img [src]="i">
-    </div>
-  </ng-container>
-  <div>
-  </div>
+<div *ngIf="selectedCountryPics.length">
+  <app-gallery-viewer [countryName]="selectedCountry.toUpperCase()" [countryPics]="selectedCountryPics" [loaded]="loaded"
+                      (countryClicked)="displayGallery($event)"></app-gallery-viewer>
 </div>
+
+<!--<ul>-->
+<!--<li *ngFor="let country of countriesMock">-->
+<!--&lt;!&ndash;<a href="javascript:;" (click)="countrySelected(country)">&ndash;&gt;-->
+<!--<a href="javascript:;" (click)="countrySelectedMock(country.toUpperCase())">-->
+<!--{{country}}-->
+<!--</a>-->
+<!--</li>-->
+<!--</ul>-->
 
 <!--<section class="section">-->
 <!--<div class="grid">-->

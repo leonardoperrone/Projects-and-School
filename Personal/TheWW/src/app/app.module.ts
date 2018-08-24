@@ -19,6 +19,7 @@ import {CountryPageComponent} from './pages/country-page/country-page.component'
 import {AboutComponent} from './pages/about/about.component';
 import {HomeComponent} from './pages/home/home.component';
 import {HttpClientModule} from '@angular/common/http';
+import { GalleryViewerComponent } from './pages/gallery-viewer/gallery-viewer.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {HttpClientModule} from '@angular/common/http';
     HomeComponent,
     AboutComponent,
     CountryPageComponent,
-    LoaderComponent
+    LoaderComponent,
+    GalleryViewerComponent
   ],
   imports: [
     BrowserModule,

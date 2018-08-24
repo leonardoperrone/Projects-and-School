@@ -22,7 +22,9 @@ export class GalleryComponent implements OnInit {
   folder = null;
   url = 'https://cdn2-www.dogtime.com/assets/uploads/2011/03/puppy-development-460x306.jpg';
   public picLinkArr = [];
+  public selectedCountryPics = [];
   public loaded = false;
+  public selectedCountry = 'TRAVELS';
 
   constructor(private galleryService: GalleryService, private db: AngularFireDatabase, private dbStorage: AngularFireStorage) {
 
@@ -44,12 +46,11 @@ export class GalleryComponent implements OnInit {
     this.countriesMock.map((country) => {
       let url = '/assets/images/banners/' + country + '.jpg';
       console.log(url);
-      this.picLinkArr.push(url);
-      if (this.picLinkArr.length !== 10) {
+      this.selectedCountryPics.push({name: country, url: url});
+      if (this.selectedCountryPics.length === 10) {
         this.loaded = true;
       }
     });
-
   }
 
   countrySelected(country: string) {
@@ -74,7 +75,22 @@ export class GalleryComponent implements OnInit {
       console.log(url);
       this.picLinkArr.push(url);
     }
+  }
 
+  public displayGallery($event) {
+    this.selectedCountryPics = [];
+    this.loaded = false;
+    console.log($event);
+    this.selectedCountry = $event;
+    for (let i = 1; i <= 10; i++) {
+      let url = '/assets/images/' + $event + '/' + i + '.jpg';
+      //console.log(url);
+      this.selectedCountryPics.push({id: i, url: url});
+      if (this.selectedCountryPics.length === 10) {
+        this.loaded = true;
+      }
+
+    }
   }
 
   generateUrl(index): any {
