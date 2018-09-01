@@ -12,7 +12,7 @@ mat-progress-spinner {
   padding: 65px 34px;
 }
 
-.header .title{
+.header .title {
   text-align: center;
   color: #fff;
   font-family: 'Raleway', sans-serif;
@@ -79,12 +79,13 @@ mat-progress-spinner {
     margin-right: 15px;
     margin-left: 15px;
   }
+  .column {
+    font-size: 35px;
+  }
 }
 
 @media screen and (max-width: 425px) {
-
-}
-
-@media screen and (max-width: 320px) {
-
+  .column {
+    font-size: 25px;
+  }
 }

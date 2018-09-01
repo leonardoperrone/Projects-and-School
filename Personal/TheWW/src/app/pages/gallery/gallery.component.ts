@@ -4,6 +4,7 @@ import {AngularFireDatabase} from 'angularfire2/database';
 import {AngularFireStorage} from 'angularfire2/storage';
 import {Observable} from 'rxjs/Observable';
 import * as _ from 'lodash';
+import {ActivatedRoute, Route, Router, Routes} from '@angular/router';
 
 @Component({
   selector: 'app-gallery',
@@ -25,8 +26,9 @@ export class GalleryComponent implements OnInit {
   public selectedCountryPics = [];
   public loaded = false;
   public selectedCountry = 'TRAVELS';
+  private sub: any;
 
-  constructor(private galleryService: GalleryService, private db: AngularFireDatabase, private dbStorage: AngularFireStorage) {
+  constructor(private galleryService: GalleryService, private db: AngularFireDatabase, private dbStorage: AngularFireStorage, private route: ActivatedRoute, private router: Router) {
 
     // const imageStorageRef = dbStorage.storage.ref().child('pictures/' + 1 + '.jpg');
     // imageStorageRef.getDownloadURL().then(url => {
@@ -43,14 +45,20 @@ export class GalleryComponent implements OnInit {
     //     console.log(url);
     //   });
     // }
-    this.countriesMock.map((country) => {
-      let url = '/assets/images/banners/' + country + '.jpg';
-      console.log(url);
-      this.selectedCountryPics.push({name: country, url: url});
-      if (this.selectedCountryPics.length === 10) {
-        this.loaded = true;
-      }
-    });
+    let id = this.route.params['country'] ? this.route.params['country'] : null;
+    console.log('country', this.route);
+    if (id) {
+      this.displayGallery(id);
+    } else {
+      this.countriesMock.map((country) => {
+        let url = '/assets/images/banners/' + country + '.jpg';
+        this.selectedCountryPics.push({name: country, url: url});
+        if (this.selectedCountryPics.length === 10) {
+          this.loaded = true;
+        }
+      });
+    }
+
   }
 
   countrySelected(country: string) {
@@ -62,7 +70,6 @@ export class GalleryComponent implements OnInit {
           // console.log(url);
           //this.url = url;
           this.picLinkArr.push(url);
-          console.log('link arr', this.picLinkArr);
 
         });
       }
@@ -72,24 +79,23 @@ export class GalleryComponent implements OnInit {
   countrySelectedMock(country: string) {
     for (let i = 1; i <= 10; i++) {
       let url = './images/banners/' + country + '/' + i + '.jpg';
-      console.log(url);
       this.picLinkArr.push(url);
     }
   }
 
   public displayGallery($event) {
+    this.router.navigate(['gallery', $event]);
     this.selectedCountryPics = [];
     this.loaded = false;
-    console.log($event);
     this.selectedCountry = $event;
     for (let i = 1; i <= 10; i++) {
       let url = '/assets/images/' + $event + '/' + i + '.jpg';
       //console.log(url);
-      this.selectedCountryPics.push({id: i, url: url});
+      this.selectedCountryPics.push({name: name, url: url});
       if (this.selectedCountryPics.length === 10) {
         this.loaded = true;
-      }
 
+      }
     }
   }
 

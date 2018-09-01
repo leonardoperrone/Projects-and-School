@@ -15,7 +15,6 @@ export class GalleryViewerComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('country name on it in',this.countryPics.map(name=> name));
   }
 
   public countrySelected(country) {
