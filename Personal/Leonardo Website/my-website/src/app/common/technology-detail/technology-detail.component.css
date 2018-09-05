@@ -5,6 +5,13 @@
   width: 582px;
   height: 479px; }
 
+.logo {
+  width: 100px;
+  float: left; }
+  .logo img {
+    width: 100%;
+    margin-bottom: 32px; }
+
 .detail-container {
   border: 1px solid #979797;
   width: 447px;
@@ -14,24 +21,23 @@
 .tech-header {
   height: 150px; }
 
-.progress-bar {
-  float: right;
-  background-color: #fff;
-  text-align: right;
-  padding: 25px; }
-
 .title {
   float: left;
   font-size: 35px;
   font-weight: bold;
   padding: 25px; }
 
-.logo {
-  width: 100px; }
+.progress-bar {
+  float: right;
+  background-color: #fff;
+  text-align: right;
+  padding: 25px; }
 
 .description {
+  width: 300px;
   font-size: 18px;
   color: #4A4A4A;
-  line-height: 20px; }
+  line-height: 20px;
+  margin-left: 20px; }
 
 /*# sourceMappingURL=technology-detail.component.css.map */

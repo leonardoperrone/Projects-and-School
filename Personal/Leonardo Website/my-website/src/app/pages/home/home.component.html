@@ -1,5 +1,30 @@
-<div class="container">
-  <app-technology-detail>
+<div class="container-main">
+  <div class="page-title">
+    <h1> Skills</h1>
+  </div>
+  <hr class="separator">
+  <div class="legend-container">
+    <img class="legend-svg-logo" src="../../../assets/logo-legend.svg">
+    <div class="scale-bar">
+      <img src="../../../assets/skill-legend.png">
+    </div>
+    <div class="info-container">
+      <a class="legend-tooltip" ngbTooltip="Source" triggers="click" tooltipClass="my-tooltip" target="_blank"
+         >
+        <i class="fas fa-info-circle"></i>
+      </a>
 
-  </app-technology-detail>
+    </div>
+  </div>
+
+
+  <div class="grid">
+    <div class="tech-item" *ngFor="let tech of techMock.technologies">
+      <app-technology-detail [technology]="tech">
+
+      </app-technology-detail>
+    </div>
+  </div>
+
 </div>
+<!--href="https://hr.nih.gov/working-nih/competencies/competencies-proficiency-scale"-->

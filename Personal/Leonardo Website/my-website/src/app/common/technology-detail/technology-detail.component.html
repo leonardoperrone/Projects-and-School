@@ -1,17 +1,20 @@
 <div class="tech-container">
+  <div class="logo">
+    <img *ngFor="let logo of technology.logos" [src]="logo">
+  </div>
   <div class="detail-container">
     <div class="tech-header">
       <div class="title">
-        Javascript
+        {{technology.name | titlecase}}
       </div>
       <div class="progress-bar">
 
-        <app-svg-viewer></app-svg-viewer>
+        <app-svg-viewer [svgSpecs]="technology.svgSpecs"></app-svg-viewer>
       </div>
     </div>
     <div class="description">
       <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        {{technology.description}}
       </p>
     </div>
   </div>

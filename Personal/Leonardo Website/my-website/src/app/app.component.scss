@@ -1,5 +1,24 @@
-.container {
+.container-main {
   margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.page-title {
+  text-align: center;
+  font-family: "Avenir Next", sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+  color: #000000;
+  letter-spacing: 9.33px;
+  margin-top: 46px;
+}
+
+.separator {
+  border: 0.5px solid rgba(151, 151, 151, 0.75);
+  width: 480px;
+  margin-bottom: 80px;
 }
 
 .nav-bg {
