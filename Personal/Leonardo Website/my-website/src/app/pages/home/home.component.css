@@ -38,10 +38,10 @@
       color: #979797;
       padding: 5px 10px; }
 
-.tooltip-inner {
+.container-main .legend-container .info-container .my-tooltip .tooltip-inner {
   background-color: #fff; }
 
-.tooltip .arrow {
+.my-tooltip .arrow::after {
   border-top-color: rgba(224, 222, 229, 0.31); }
 
 .legend-tooltip-link {
@@ -49,5 +49,12 @@
   text-decoration: none; }
   .legend-tooltip-link:hover {
     color: #4A4A4A; }
+
+.my-custom-class .tooltip-inner {
+  background-color: darkgreen;
+  font-size: 125%; }
+
+.my-custom-class .arrow::before {
+  border-top-color: darkgreen; }
 
 /*# sourceMappingURL=home.component.css.map */
