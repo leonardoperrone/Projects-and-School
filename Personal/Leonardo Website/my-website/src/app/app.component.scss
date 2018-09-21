@@ -48,3 +48,19 @@
     box-shadow: none;
   }
 }
+
+@media screen and (max-width: 425px) {
+  .separator {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .separator {
+    width: 250px;
+  }
+  .page-title {
+    font-size: 25px;
+  }
+}
+

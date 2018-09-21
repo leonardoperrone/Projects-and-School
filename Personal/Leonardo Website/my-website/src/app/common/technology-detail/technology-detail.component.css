@@ -3,7 +3,7 @@
   color: #000000;
   letter-spacing: 0;
   width: 582px;
-  height: 479px; }
+  height: 580px; }
 
 .logo {
   width: 100px;
@@ -25,7 +25,8 @@
   float: left;
   font-size: 35px;
   font-weight: bold;
-  padding: 25px; }
+  padding: 25px;
+  max-width: 280px; }
 
 .progress-bar {
   float: right;
@@ -34,10 +35,56 @@
   padding: 25px; }
 
 .description {
-  width: 300px;
+  width: auto;
   font-size: 18px;
   color: #4A4A4A;
-  line-height: 24px;
-  margin-left: 20px; }
+  line-height: 30px;
+  margin-left: 25px;
+  margin-top: 40px;
+  margin-right: 25px; }
+
+@media screen and (max-width: 1024px) {
+  .tech-container {
+    width: 650px; }
+
+  .detail-container {
+    width: 500px;
+    height: auto; } }
+@media screen and (max-width: 425px) {
+  .tech-container {
+    width: 410px; }
+
+  .tech-header {
+    margin-bottom: 20px;
+    display: inline-block; }
+
+  .detail-container {
+    width: 320px;
+    height: auto; }
+
+  .title {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 25px;
+    max-width: 150px;
+    float: none; }
+
+  .logo {
+    width: 50px;
+    margin-left: 10px; }
+
+  .progress-bar {
+    display: inline-block;
+    vertical-align: middle;
+    float: none; } }
+@media screen and (max-width: 320px) {
+  .tech-container {
+    display: inline; }
+
+  .logo {
+    white-space: nowrap; }
+    .logo img {
+      margin-bottom: 20px;
+      margin-right: 10px; } }
 
 /*# sourceMappingURL=technology-detail.component.css.map */

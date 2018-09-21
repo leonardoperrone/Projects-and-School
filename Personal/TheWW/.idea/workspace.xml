@@ -684,7 +684,7 @@
     <property name="SearchEverywhereHistoryKey" value="webpac&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536403803300" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537558549373" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -786,12 +786,12 @@
       <workItem from="1534369924375" duration="305000" />
       <workItem from="1534617228027" duration="31592000" />
       <workItem from="1534891432090" duration="533000" />
-      <workItem from="1535752790466" duration="5743000" />
+      <workItem from="1535752790466" duration="6006000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172226000" />
+    <option name="totallyTimeSpent" value="172489000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="976" extended-state="1" />

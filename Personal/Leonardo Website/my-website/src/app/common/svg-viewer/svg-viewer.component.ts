@@ -7,6 +7,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 })
 export class SvgViewerComponent implements OnInit, OnChanges {
   @Input() public svgSpecs: any = {};
+  public svgDash: string;
 
   constructor() {
   }
@@ -15,8 +16,8 @@ export class SvgViewerComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.rotation && this.svgSpecs.dash) {
-      this.svgSpecs.dash = ((parseInt(this.svgSpecs.rotation, 10) / 100) * 100 * 3.14).toString();
+    if (changes.svgSpecs && this.svgSpecs.experience) {
+      this.svgDash = ((parseInt(this.svgSpecs.experience, 10) / 100) * 100 * 3.14).toString();
     }
   }
 

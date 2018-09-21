@@ -12,6 +12,7 @@ export class TechnologyDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
 }

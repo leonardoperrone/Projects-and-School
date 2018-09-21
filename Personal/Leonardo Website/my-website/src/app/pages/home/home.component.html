@@ -1,6 +1,6 @@
 <div class="container-main">
   <div class="page-title">
-    <h1> Skills</h1>
+    <h1> Skills </h1>
   </div>
   <hr class="separator">
   <div class="legend-container">
@@ -9,8 +9,9 @@
       <img src="../../../assets/skill-legend.png">
     </div>
     <div class="info-container">
-      <a class="legend-tooltip" ngbTooltip="Source" tooltipClass="my-tooltip" target="_blank" href="https://hr.nih.gov/working-nih/competencies/competencies-proficiency-scale"
-         >
+      <a class="legend-tooltip" ngbTooltip="Source" tooltipClass="my-tooltip" target="_blank"
+         href="https://hr.nih.gov/working-nih/competencies/competencies-proficiency-scale"
+      >
         <i class="fas fa-info-circle"></i>
       </a>
 
@@ -19,9 +20,8 @@
 
 
   <div class="grid">
-    <div class="tech-item" *ngFor="let tech of techMock.technologies">
+    <div class="tech-item" *ngFor="let tech of technologies | async">
       <app-technology-detail [technology]="tech">
-
       </app-technology-detail>
     </div>
   </div>

@@ -1,4 +1,41 @@
 .container-main .separator-home {
   width: 380px; }
 
+.about-container {
+  font-family: "Charter", sans-serif;
+  color: #000000;
+  letter-spacing: 3px;
+  text-align: center;
+  font-size: 1.3rem;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 75px;
+  justify-content: center;
+  margin: 0 100px; }
+  .about-container p {
+    line-height: 30px; }
+
+.profile-pic {
+  width: 100%; }
+  .profile-pic img {
+    width: 100%; }
+
+@media screen and (max-width: 1024px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    font-size: 1.2rem; }
+
+  .profile-pic {
+    margin-bottom: 50px; } }
+@media screen and (max-width: 768px) {
+  .container-main .separator-home {
+    width: 300px; }
+
+  .about-container {
+    font-size: 0.9rem; } }
+@media screen and (max-width: 425px) {
+  .profile-pic {
+    width: 300px; } }
+
 /*# sourceMappingURL=about.component.css.map */
