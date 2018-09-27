@@ -9,22 +9,32 @@
       <img src="../../../assets/profile-pic.jpg">
     </div>
     <div class="about-description">
-      <p>   Hello visitor, my name is Leonardo Perrone and I am a young software developer that just started his career in
+      <p> Hello visitor, my name is Leonardo Perrone and I am a young software developer that just started his career in
         this wonderful field. When I was younger, I felt a strong connection with technology and computers so I decided
         to pursue a degree related to this subject. A few years after, I completed a Bachelor’s of Science in Computer
         Engineering at Wichita State University in the sunflower state of Kansas. I was also able to complete a minor in
         Management Information Systems, which gave me my first exposure to relational databases and VB.
       </p>
       <p>
-          I believe that software developers and engineers are not only the gears that make our world go on, but also the
+        I believe that software developers and engineers are not only the gears that make our world go on, but also the
         ones that show the world that nothing is impossible in terms of innovation. You think it, they’ll do it. With
         this in mind I hope that someday I will be part of innovation that will affect the upcoming generations.
       </p>
-      <p> If you would like to know more about me you can reach me through my email or phone number.
-      <p>
-
-      contact info
+      <p> If you would like to know more about me you can reach me through the email displayed below.
       </p>
+
+      <div class="contact-detail">
+
+        <button class="btn btn-outline-dark" type="button" *ngIf="!isCollapsed" (click)="copyEmail()">Copy</button>
+        <button *ngIf="isCollapsed" type="button" class="btn btn-outline-dark" (click)="showEmail()"
+                [attr.aria-expanded]="!isCollapsed" aria-controls="collapseEmail">
+          <span> {{showButtonText}}</span>
+        </button>
+        <div id="collapseEmail" [ngbCollapse]="isCollapsed">
+          <input #email class="email-field" readonly type="text" [value]="first + '@' + last">
+        </div>
+      </div>
     </div>
   </div>
 </div>
+

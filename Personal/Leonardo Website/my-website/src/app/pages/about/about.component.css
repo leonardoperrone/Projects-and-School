@@ -1,41 +1,41 @@
-.container-main .separator-home {
-  width: 380px; }
+/*
+Error: Invalid CSS after "}": expected selector or at-rule, was "{"
+        on line 29 of about.component.scss
 
-.about-container {
-  font-family: "Charter", sans-serif;
-  color: #000000;
-  letter-spacing: 3px;
-  text-align: center;
-  font-size: 1.3rem;
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 75px;
-  justify-content: center;
-  margin: 0 100px; }
-  .about-container p {
-    line-height: 30px; }
+24:   img {
+25:     width: 100%;
+26:   }
+27: }
+28: 
+29: {
+30: 
+31: }
+32: .contact-detail {
+33:   display: grid;
+34:   grid-template-columns: 1fr 1fr;
 
-.profile-pic {
-  width: 100%; }
-  .profile-pic img {
-    width: 100%; }
-
-@media screen and (max-width: 1024px) {
-  .about-container {
-    grid-template-columns: 1fr;
-    font-size: 1.2rem; }
-
-  .profile-pic {
-    margin-bottom: 50px; } }
-@media screen and (max-width: 768px) {
-  .container-main .separator-home {
-    width: 300px; }
-
-  .about-container {
-    font-size: 0.9rem; } }
-@media screen and (max-width: 425px) {
-  .profile-pic {
-    width: 300px; } }
-
-/*# sourceMappingURL=about.component.css.map */
+Backtrace:
+about.component.scss:29
+/Library/Ruby/Gems/2.0.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:1278:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:1208:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.5.5/lib/sass/scss/parser.rb:42:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.5.5/lib/sass/engine.rb:414:in `_to_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.5.5/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.5.5/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:209:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.5.5/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.5.5/lib/sass/plugin.rb:82:in `update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.5.5/lib/sass/exec/sass_scss.rb:340:in `watch_or_update'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.5.5/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.5.5/lib/sass/exec/base.rb:52:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.5.5/lib/sass/exec/base.rb:19:in `parse!'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.5.5/bin/scss:13:in `<top (required)>'
+/usr/local/bin/scss:23:in `load'
+/usr/local/bin/scss:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"}\": expected selector or at-rule, was \"{\"\A         on line 29 of about.component.scss\A \A 24:   img {\A 25:     width: 100%;\A 26:   }\A 27: }\A 28: \A 29: {\A 30: \A 31: }\A 32: .contact-detail {\A 33:   display: grid;\A 34:   grid-template-columns: 1fr 1fr;"; }

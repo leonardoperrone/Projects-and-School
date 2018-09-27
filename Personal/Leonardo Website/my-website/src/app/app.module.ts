@@ -12,6 +12,8 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { TechnologyService } from './services/technology.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,12 @@ import { TechnologyService } from './services/technology.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule,
     AngularFireModule.initializeApp(environment.firebase, 'leonardo-web'),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    ToastrModule.forRoot()
   ],
   providers: [TechnologyService],
   bootstrap: [AppComponent]
