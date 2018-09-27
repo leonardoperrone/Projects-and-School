@@ -1,0 +1,240 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+match_original <- tbl_df(dbGetQuery(con, "SELECT * FROM Match"))
+match_work_sample <- match_original
+team_stats <- tbl_df(dbGetQuery(con, "SELECT * FROM team_attributes"))
+colnames(team_stats)[3] <- "home_team_api_id"
+
+match_work_sample$id <- NULL
+team_stats$team_fifa_api_id <- NULL
+team_stats$date <- NULL
+match_work_sample[11:84] <- NULL
+match_work_sample[14:40] <- NULL
+match_work_sample$home_team_win <- ifelse(match_work_sample$home_team_goal > match_work_sample$away_team_goal, 1, 0)
+match_work_sample$bet <- ifelse(
+((match_work_sample$B365H < match_work_sample$B365D) & (match_work_sample$B365H < match_work_sample$B365A) &
+(match_work_sample$home_team_win == 1)), 1, 0)
+m = merge(team_stats, match_work_sample, by="home_team_api_id")
+m <- na.omit(m)
+m$home_team_api_id <- NULL
+m$country_id <- NULL
+m$league_id <- NULL
+m$stage <- NULL
+m$match_api_id <- NULL
+m$home_team_goal <- NULL
+m$away_team_api_id <- NULL
+m$away_team_goal <- NULL
+m$home_team_win <- NULL
+
+unique(m$buildUpPlaySpeedClass)
+m$buildUpPlaySpeedClass[m$buildUpPlaySpeedClass == "Slow"] <- 0
+m$buildUpPlaySpeedClass[m$buildUpPlaySpeedClass == "Balanced"] <- 0.5
+m$buildUpPlaySpeedClass[m$buildUpPlaySpeedClass == "Fast"] <- 1
+unique(m$buildUpPlayDribblingClass)
+m$buildUpPlayDribblingClass[m$buildUpPlayDribblingClass == "Little"] <- 0
+m$buildUpPlayDribblingClass[m$buildUpPlayDribblingClass == "Normal"] <- 0.5
+m$buildUpPlayDribblingClass[m$buildUpPlayDribblingClass == "Lots"] <- 1
+m$buildUpPlayDribbling <- NULL
+m$buildUpPlaySpeed <- NULL
+unique(m$buildUpPlayPassingClass)
+m$buildUpPlayPassingClass[m$buildUpPlayPassingClass == "Short"] <- 0
+m$buildUpPlayPassingClass[m$buildUpPlayPassingClass == "Mixed"] <- 0.5
+m$buildUpPlayPassingClass[m$buildUpPlayPassingClass == "Long"] <- 1
+m$buildUpPlayPassing <- NULL
+unique(m$buildUpPlayPositioningClass)
+m$buildUpPlayPositioningClass[m$buildUpPlayPositioningClass == "Organised"] <- 0
+m$buildUpPlayPositioningClass[m$buildUpPlayPositioningClass == "Free Form"] <- 1
+m$buildUpPlayPositioning <- NULL
+unique(m$chanceCreationPassingClass)
+m$chanceCreationPassingClass[m$chanceCreationPassingClass == "Safe"] <- 0
+m$chanceCreationPassingClass[m$chanceCreationPassingClass == "Normal"] <- 0.5
+m$chanceCreationPassingClass[m$chanceCreationPassingClass == "Risky"] <- 1
+m$chanceCreationPassing <- NULL
+unique(m$chanceCreationCrossingClass)
+unique(m$chanceCreationCrossingClass)
+m$chanceCreationCrossingClass[m$chanceCreationCrossingClass == "Little"] <- 0
+m$chanceCreationCrossingClass[m$chanceCreationCrossingClass == "Normal"] <- 0.5
+m$chanceCreationCrossingClass[m$chanceCreationCrossingClass == "Lots"] <- 1
+m$chanceCreationCrossing <- NULL
+unique(m$chanceCreationShootingClass)
+m$chanceCreationShootingClass[m$chanceCreationShootingClass == "Little"] <- 0
+m$chanceCreationShootingClass[m$chanceCreationShootingClass == "Normal"] <- 0.5
+m$chanceCreationShootingClass[m$chanceCreationShootingClass == "Lots"] <- 1
+m$chanceCreationShooting <- NULL
+
+unique(m$chanceCreationPositioningClass)
+m$chanceCreationPositioningClass[m$chanceCreationPositioningClass == "Organised"] <- 0
+m$chanceCreationPositioningClass[m$chanceCreationPositioningClass == "Free Form"] <- 1
+m$chanceCreationPositioning <- NULL
+unique(m$defencePressureClass)
+m$defencePressureClass[m$defencePressureClass == "Deep"] <- 0
+m$defencePressureClass[m$defencePressureClass == "Medium"] <- 0.5
+m$defencePressureClass[m$defencePressureClass == "High"] <- 1
+m$defencePressure <- NULL
+unique(m$defenceAggressionClass)
+m$defenceAggressionClass[m$defenceAggressionClass == "Contain"] <- 0
+m$defenceAggressionClass[m$defenceAggressionClass == "Double"] <- 0.5
+m$defenceAggressionClass[m$defenceAggressionClass == "Cotain"] <- 1
+m$defenceAggression <- NULL
+m$defenceAggressionClass[m$defenceAggressionClass == "Contain"] <- 0
+m$defenceAggressionClass[m$defenceAggressionClass == "Double"] <- 0.5
+m$defenceAggressionClass[m$defenceAggressionClass == "Cotain"] <- 1
+m$defenceAggression <- NULL
+unique(m$defenceTeamWidthClass)
+m$defenceTeamWidthClass[m$defenceTeamWidthClass == "Narrow"] <- 0
+m$defenceTeamWidthClass[m$defenceTeamWidthClass == "Normal"] <- 0.5
+m$defenceTeamWidthClass[m$defenceTeamWidthClass == "Wide"] <- 1
+m$defenceTeamWidth <- NULL
+unique(m$defenceAggressionClass)
+m$defenceAggressionClass[m$defenceAggressionClass == "Contain"] <- 0
+m$defenceAggressionClass[m$defenceAggressionClass == "Double"] <- 0.5
+m$defenceAggressionClass[m$defenceAggressionClass == "Press"] <- 1
+m$defenceAggression <- NULL
+unique(m$defenceDefenderLineClass)
+m$defenceDefenderLineClass[m$defenceDefenderLineClass == "Cover"] <- 0
+m$defenceDefenderLineClass[m$defenceDefenderLineClass == "Offside Trap"] <- 1
+m$defenceDefenderLine <- NULL
+m$season <- NULL
+m$buildUpPlaySpeedClass <- as.numeric(m$buildUpPlaySpeedClass)
+m$buildUpPlayDribblingClass <- as.numeric(m$buildUpPlayDribblingClass)
+m$buildUpPlayPassingClass <- as.numeric(m$buildUpPlayPassingClass)
+m$buildUpPlayPositioningClass <- as.numeric(m$buildUpPlayPositioningClass)
+m$chanceCreationPassingClass <- as.numeric(m$chanceCreationPassingClass)
+m$chanceCreationCrossingClass <- as.numeric(m$chanceCreationCrossingClass)
+m$chanceCreationShootingClass <- as.numeric(m$chanceCreationShootingClass)
+m$chanceCreationPositioningClass <- as.numeric(m$chanceCreationPositioningClass)
+m$defencePressureClass <- as.numeric(m$defencePressureClass)
+m$defenceAggressionClass <- as.numeric(m$defenceAggressionClass)
+m$defenceTeamWidthClass <- as.numeric(m$defenceTeamWidthClass)
+m$defenceDefenderLineClass <- as.numeric(m$defenceDefenderLineClass)
+
+
+
+m <- na.omit(m)
+```
+
+
+
+split data set
+```{r}
+m$bet = as.numeric(m$bet)
+m$id <- NULL
+m$date <- NULL
+set.seed(1)
+spec = c(train_set = .6, test_set = .3, validation_set = .1)
+g = sample(cut(seq(nrow(m)), nrow(m)*cumsum(c(0,spec)), labels=names(spec)))
+res = split(m, g)
+sapply(res, nrow)/nrow(m)
+addmargins(prop.table(table(g)))
+```
+
+storing labels
+```{r}
+res_train_labels <- res$train_set[16]
+res_test_labels <- res$test_set[16]
+res_validation_labels <- res$validation_set[16]
+
+```
+
+normalize and bring back labels
+```{r}
+res$train_set$bet <- NULL
+res$train_set <- scale(res$train_set)
+res$train_set <- cbind(res_train_labels, res$train_set[,1:15])
+```
+
+```{r}
+res$train_set <- as.factor(res$train_set$bet)
+```
+
+lda
+```{r}
+res_train_lda <- lda(res$train_set$bet ~ res$train_set$B365H + res$train_set$B365A + res$train_set$B365D + res$train_set$IWA +
+        res$train_set$IWH + res$train_set$IWD + res$train_set$buildUpPlaySpeedClass + res$train_set$buildUpPlayPositioningClass + res$train_set$buildUpPlayDribblingClass + res$train_set$buildUpPlayPassingClass, data=res$train_set)
+
+res_train_lda.1 <- lda(res$train_set$bet ~ ., data = res$train_set)
+
+```
+
+  
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+```{r}
+
+res_train_lda.1 <- lda(bet ~ B365H + B365A + B365D + buildUpPlaySpeedClass + buildUpPlayPositioningClass + buildUpPlayDribblingClass + buildUpPlayPassingClass + chanceCreationPassingClass + chanceCreationCrossingClass + chanceCreationShootingClass + chanceCreationPositioningClass + defencePressureClass + defenceAggressionClass + defenceTeamWidthClass + defenceDefenderLineClass, data=res$train_set)
+
+res_train_lda_predict.1 <- predict(res_train_lda.1, res$test_set)$class
+table(res_train_lda_predict.1, res$test_set$bet)
+
+mean(res_train_lda_predict.1 == res$test_set$bet)
+
+
+res_train_qda.1 <- qda(bet ~ B365H + B365A + B365D + buildUpPlaySpeedClass + buildUpPlayPositioningClass + buildUpPlayDribblingClass + buildUpPlayPassingClass + chanceCreationPassingClass + chanceCreationCrossingClass + chanceCreationShootingClass + chanceCreationPositioningClass + defencePressureClass + defenceAggressionClass + defenceTeamWidthClass + defenceDefenderLineClass, data=res$train_set)
+
+res_train_qda_predict.1 <- predict(res_train_qda.1, res$test_set)$class
+table(res_train_qda_predict.1, res$test_set$bet)
+
+mean(res_train_qda_predict.1 == res$test_set$bet)
+
+
+```
+
+
+```{r}
+res$train_set[1] <- NULL
+res$test_set[16] <- NULL
+```
+
+
+```{r}
+res_train_knn.1 <- knn(res$train_set, res$test_set,res_train_labels$bet, k=1, prob = FALSE)
+100*sum(res_test_labels$bet == res_train_knn.1)/length(res_test_labels$bet)
+
+res_train_knn.5 <- knn(res$train_set, res$test_set,res_train_labels$bet, k=5, prob = FALSE)
+100*sum(res_test_labels$bet == res_train_knn.5)/length(res_test_labels$bet)
+
+res_train_knn.10 <- knn(res$train_set, res$test_set,res_train_labels$bet, k=10, prob = FALSE)
+100*sum(res_test_labels$bet == res_train_knn.10)/length(res_test_labels$bet)
+
+res_train_knn.15 <- knn(res$train_set, res$test_set,res_train_labels$bet, k=15, prob = FALSE)
+100*sum(res_test_labels$bet == res_train_knn.15)/length(res_test_labels$bet)
+
+res_train_knn.20 <- knn(res$train_set, res$test_set,res_train_labels$bet, k=20, prob = FALSE)
+100*sum(res_test_labels$bet == res_train_knn.20)/length(res_test_labels$bet)
+
+res_train_knn.30 <- knn(res$train_set, res$test_set,res_train_labels$bet, k=30, prob = FALSE)
+100*sum(res_test_labels$bet == res_train_knn.30)/length(res_test_labels$bet)
+```
+
+validation
+```{r}
+
+res_val_lda_predict.1 <- predict(res_train_lda.1, res$validation_set)$class
+table(res_val_lda_predict.1, res$validation_set$bet)
+
+mean(res_train_lda_predict.1 == res$validation_set$bet)
+
+
+res_train_lda_predict.1 <- predict(res_train_lda.1, res$test_set)$class
+table(res_train_lda_predict.1, res$test_set$bet)
+
+mean(res_train_lda_predict.1 == res$test_set$bet)
+```
+
+visualize
+```{r}
+dataset = data.frame(bet = res$test_set[,"Bet"], lda=res_val_lda_predict.1$x)
+p1 <- ggplot(dataset) + geom_point(aes(lda.LD1, lda.LD2, colour = species, shape = species), size = 2.5) + 
+  labs(x = paste("LD1 (", percent(prop.lda[1]), ")", sep=""),
+       y = paste("LD2 (", percent(prop.lda[2]), ")", sep=""))
+```
+
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file).
