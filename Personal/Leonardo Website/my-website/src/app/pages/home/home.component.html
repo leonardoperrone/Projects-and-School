@@ -19,11 +19,15 @@
   </div>
 
 
-  <div class="grid">
-    <div class="tech-item" *ngFor="let tech of technologies | async">
+  <app-loader *ngIf="!loaded"></app-loader>
+  <div class="grid" *ngIf="loaded">
+    <div class="tech-item" *ngFor="let tech of technologies">
       <app-technology-detail [technology]="tech">
       </app-technology-detail>
     </div>
   </div>
-
 </div>
+
+
+<ng-template #loading>
+</ng-template>

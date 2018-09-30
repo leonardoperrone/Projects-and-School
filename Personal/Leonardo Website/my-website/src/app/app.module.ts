@@ -14,6 +14,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { TechnologyService } from './services/technology.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { LoaderComponent } from './common/loader/loader.component';
+import { MatButtonModule, MatCheckboxModule, MatProgressSpinnerModule } from '@angular/material';
+import { FooterComponent } from './common/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     AboutComponent,
     TechnologyDetailComponent,
-    SvgViewerComponent
+    SvgViewerComponent,
+    LoaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +35,9 @@ import { ToastrModule } from 'ngx-toastr';
     NgbModule,
     AngularFireModule.initializeApp(environment.firebase, 'leonardo-web'),
     AngularFireDatabaseModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatProgressSpinnerModule,
     ToastrModule.forRoot()
   ],
   providers: [TechnologyService],

@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AboutComponent implements OnInit {
   @ViewChild('email') email: ElementRef;
+  @ViewChild('copy') copy: ElementRef;
 
   public first = '';
   public last = '';
@@ -25,24 +26,34 @@ export class AboutComponent implements OnInit {
     if (!this.isCollapsed) {
       this.first = 'leonardoperrone1994';
       this.last = 'gmail.com';
-      this.showButtonText = 'Hide Email';
     } else {
       this.showButtonText = 'Show Email';
     }
   }
 
   public showSuccess() {
-    this.toastr.success('Hello world!');
+    this.toastr.success('Email copied to clipboard!', 'Success!');
+  }
+
+  public showError() {
+    this.toastr.error('Something went wrong. Please press Ctrl+C to copy!', 'Oops!');
   }
 
   public copyEmail() {
+
     this.email.nativeElement.select();
     try {
       document.execCommand('copy');
+
       this.showSuccess();
       // this.email.nativeElement.blur();
+
     } catch (err) {
-      alert('Please press Ctrl/Cmd+C to copy');
+      this.showError();
+    } finally {
+      setTimeout(() => {
+        this.copy.nativeElement.blur();
+      }, 1000);
     }
   }
 

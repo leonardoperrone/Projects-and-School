@@ -7,6 +7,12 @@
   <div class="about-container">
     <div class="profile-pic">
       <img src="../../../assets/profile-pic.jpg">
+      <span class="photo-caption">
+        Photo credit: Marcello Munari
+        <a class="marcello-ig-link" href="https://www.instagram.com/thewisdomwhisperer/?hl=en" target="_blank">
+        <i class="fas fa-external-link-alt"></i>
+      </a>
+      </span>
     </div>
     <div class="about-description">
       <p> Hello visitor, my name is Leonardo Perrone and I am a young software developer that just started his career in
@@ -18,20 +24,31 @@
       <p>
         I believe that software developers and engineers are not only the gears that make our world go on, but also the
         ones that show the world that nothing is impossible in terms of innovation. You think it, they’ll do it. With
-        this in mind I hope that someday I will be part of innovation that will affect the upcoming generations.
+        this in mind I hope that someday I will be part of the innovation that will affect the upcoming generations.
       </p>
-      <p> If you would like to know more about me you can reach me through the email displayed below.
+
+    </div>
+    <div class="email-container">
+
+      <p> If you would like to know more about me you can reach me through the email displayed below or through my
+        LinkedIn
+        <a class="linkedin-link" href="https://www.linkedin.com/in/leonardo-perrone-123456/" target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
       </p>
 
       <div class="contact-detail">
 
-        <button class="btn btn-outline-dark" type="button" *ngIf="!isCollapsed" (click)="copyEmail()">Copy</button>
-        <button *ngIf="isCollapsed" type="button" class="btn btn-outline-dark" (click)="showEmail()"
+
+        <button *ngIf="isCollapsed" type="button" class="btn btn-outline-dark btn-show" (click)="showEmail()"
                 [attr.aria-expanded]="!isCollapsed" aria-controls="collapseEmail">
           <span> {{showButtonText}}</span>
         </button>
         <div id="collapseEmail" [ngbCollapse]="isCollapsed">
           <input #email class="email-field" readonly type="text" [value]="first + '@' + last">
+          <button #copy class="btn btn-outline-dark btn-copy" type="button" *ngIf="!isCollapsed" (click)="copyEmail()">
+            <i
+              class="far fa-clone"></i></button>
         </div>
       </div>
     </div>

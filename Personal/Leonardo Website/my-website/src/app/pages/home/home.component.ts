@@ -9,13 +9,16 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
-  public technologies: Observable<Technology[]>;
-
+  public technologies: Technology[];
+  public loaded =  false;
   constructor(private technologyService: TechnologyService) {
   }
 
   ngOnInit() {
-    this.technologies = this.technologyService.getTechnologies();
+    this.technologyService.getTechnologies().subscribe((res) => {
+      this.technologies = res;
+      this.loaded = true;
+    });
   }
 
 }

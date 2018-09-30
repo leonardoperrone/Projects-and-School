@@ -5,6 +5,7 @@
   grid-template-columns: repeat(2, 582px);
   grid-column-gap: 96px;
   justify-content: center;
+  padding-top: 70px;
 }
 
 .tech-item {
@@ -129,21 +130,26 @@
   .legend-container {
     width: 310px;
     height: 90px;
-    grid-template-columns: 0px 0.7fr 1px;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
     .legend-svg-logo {
-      width: 0;
+      display: none;
     }
     .scale-bar {
-      width: 240px;
-      margin-left: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      grid-row: 1;
     }
   }
 
   .tech-item {
     margin-bottom: 100px;
   }
+  .info-container {
+    grid-row: 2;
 
+  }
   .legend-container .info-container .legend-tooltip {
-    padding: 5px 0;
+    padding: 5px 5px;
   }
 }

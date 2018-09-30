@@ -3,15 +3,11 @@
 }
 
 .about-container {
-  font-family: "Charter", sans-serif;
-  color: #000000;
-  letter-spacing: 3px;
-  text-align: center;
-  font-size: 21px;
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 75px;
+  grid-row-gap: 50px;
   justify-content: center;
   margin: 0 100px;
   p {
@@ -19,10 +15,50 @@
   }
 }
 
+.about-description {
+  text-align: left;
+
+}
+
+.about-container, .email-field {
+  font-family: "Charter", sans-serif;
+  color: #000000;
+  font-size: 25px;
+  letter-spacing: 2px;
+
+}
+
 .profile-pic {
   width: 100%;
   img {
     width: 100%;
+  }
+}
+
+.photo-caption {
+  font-size: 15px;
+  font-style: italic;
+  float: right;
+  margin-top: 5px;
+}
+
+.fa-external-link-alt {
+  font-size: 14px;
+}
+
+.marcello-ig-link {
+  color: #000;
+  &:hover {
+    color: #979797;
+  }
+}
+
+
+.linkedin-link {
+  color: #0077B5;
+  font-size: 23px;
+  &:hover {
+    color: #00A0DC;
   }
 }
 
@@ -37,19 +73,57 @@
   font-size: 21px;
 }
 
-.email-field {
-  width: 100%;
-  text-align: center;
+.btn-copy {
+  width: 40px;
+  height: 40px;
+  padding: 3px;
+  border-radius: 13px;
   border: none;
 }
 
+.fa-clone {
+  font-size: 16px;
+}
 
+.email-container {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  text-align: center;
+}
 
-@media screen and (max-width: 1024px) {
+.email-field {
+  width: 480px;
+  color: #212529;
+  text-align: center;
+  border: none;
+  margin-right: 10px;
+  vertical-align: bottom;
+}
+
+@media screen and (max-width: 1440px) {
   .about-container {
     grid-template-columns: 1fr;
-    font-size: 1.2rem;
   }
+
+  .about-description {
+    text-align: center;
+  }
+  .profile-pic {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .email-container {
+    grid-row: 3;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .about-container, .email-field {
+    font-size: 21px;
+    grid-row-gap: 25px;
+  }
+
   .profile-pic {
     margin-bottom: 50px;
   }
@@ -60,13 +134,36 @@
     width: 300px;
   }
 
-  .about-container {
-    font-size: 0.9rem;
+  .about-container, .email-field {
+    font-size: 18px;
   }
+  .email-field {
+    width: 360px;
+    vertical-align: sub;
+  }
+  .btn-show {
+    width: 130px;
+    height: 45px;
+    font-size: 18px;
+  }
+
 }
 
 @media screen and (max-width: 425px) {
-  .profile-pic {
+  .about-container {
+    margin: 0px 20px;
+  }
+  .email-field {
+    width: 330px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .container-main .separator-home {
+    width: 270px;
+  }
+  .email-field {
+    font-size: 15px;
     width: 300px;
   }
 }
